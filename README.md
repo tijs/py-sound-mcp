@@ -181,6 +181,12 @@ pip install -e ".[dev]"
 pytest
 ```
 
+## Acknowledgments
+
+* [SIAM-TheLegend](https://github.com/SIAM-TheLegend) for creating the original [sound-mcp](https://github.com/SIAM-TheLegend/sound-mcp) JavaScript implementation that inspired this Python version
+* The MCP protocol developers for creating a powerful standard for AI tool interactions
+* Contributors to the testing and documentation
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
