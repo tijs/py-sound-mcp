@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-sound-tool"
+version = "0.1.0"
+description = "An MCP server implementing a sound tool for Cursor and other MCP compatible IDEs"
+authors = [
+    {name = "Tijs Teulings", email = "tijs@automatique.nl"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+    "mcp>=1.2.0",
+]
+
+[project.urls]
+repository = "https://github.com/yourusername/mcp-sound-tool"
+
+[project.scripts]
+mcp-sound-tool = "sound_tool.server:main"
+
+[tool.setuptools.package-data]
+"sound_tool" = ["sounds/*.mp3", "sounds/*.wav"] 
