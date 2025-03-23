@@ -11,7 +11,28 @@ A Model Context Protocol (MCP) implementation that plays sound effects for Curso
 
 ## Installation
 
-### From PyPI
+### Python Version Compatibility
+
+This package is tested with Python 3.8-3.11. If you encounter errors with Python 3.12+ (particularly `BrokenResourceError` or `TaskGroup` exceptions), please try using an earlier Python version.
+
+### Recommended: Install with pipx
+
+The recommended way to install mcp-sound-tool is with [pipx](https://pypa.github.io/pipx/), which installs the package in an isolated environment while making the commands available globally:
+
+```bash
+# Install pipx if you don't have it
+python -m pip install --user pipx
+python -m pipx ensurepath
+
+# Install mcp-sound-tool
+pipx install mcp-sound-tool
+```
+
+This method ensures that the tool has its own isolated environment, avoiding conflicts with other packages.
+
+### Alternative: Install with pip
+
+You can also install directly with pip:
 
 ```bash
 pip install mcp-sound-tool
@@ -26,7 +47,13 @@ pip install mcp-sound-tool
    cd mcp-sound-tool
    ```
 
-2. Install dependencies:
+2. Install with pipx directly from the source directory:
+
+   ```bash
+   pipx install .
+   ```
+
+   Or with pip:
 
    ```bash
    pip install -e .
@@ -93,6 +120,54 @@ On Windows:
   }
 }
 ```
+
+When installed with `pipx`, the `mcp-sound-tool` command will be available in your PATH, so Cursor will be able to find and execute it without specifying the full path.
+
+## Sound MCP Usage Guidelines for AI Models
+
+This MCP server provides audio feedback capabilities for AI interactions. It's designed to enhance the user experience by providing clear audio cues that indicate the status of operations without requiring the user to read text.
+
+### When to Use Sound Feedback
+
+AI agents should use the sound tools proactively at appropriate moments:
+
+1. **Success Sounds (`completion`)**:
+   * After a task or command has successfully completed
+   * When a significant operation has finished successfully
+   * When confirming a user's request has been fulfilled
+
+2. **Error Sounds (`error`)**:
+   * When a command has failed or encountered an error
+   * When warning the user about a problem
+   * When an operation couldn't be completed as requested
+
+3. **Notification Sounds (`notification`)**:
+   * When alerting the user to important information
+   * When prompting for user attention or input
+   * For status updates on long-running operations
+
+### Example Usage
+
+```python
+# When a command completes successfully
+@mcp.tool()
+def execute_command(command):
+    result = run_command(command)
+    if result.success:
+        play_sound("completion")  # Indicate success with audio
+        return "Command executed successfully"
+    else:
+        play_sound("error")  # Indicate failure with audio
+        return f"Error: {result.error_message}"
+```
+
+### Available Tools
+
+1. `play_sound(sound_type="completion", custom_sound_path=None)`: Play a sound effect
+2. `list_available_sounds()`: List all available sound files
+3. `install_to_user_dir()`: Install sound files to user's config directory
+
+For more details, connect to the MCP server and check the tool descriptions.
 
 ## Development
 

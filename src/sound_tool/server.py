@@ -220,7 +220,16 @@ def main():
     server = SoundToolServer()
     # Start the server and block until it's terminated
     print("Starting Sound Tool MCP server - press Ctrl+C to exit")
-    server.mcp.run()
+    try:
+        server.mcp.run()
+    except KeyboardInterrupt:
+        print("\nShutting down Sound Tool MCP server...")
+    except Exception as e:
+        if "BrokenResourceError" in str(e) or "unhandled errors in a TaskGroup" in str(e):
+            print("\nConnection closed. Shutting down Sound Tool MCP server...")
+        else:
+            print(f"\nError in Sound Tool MCP server: {e}")
+    print("Sound Tool MCP server stopped.")
 
 
 if __name__ == "__main__":
