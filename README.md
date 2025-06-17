@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/tijs-py-sound-mcp-badge.png)](https://mseep.ai/app/tijs-py-sound-mcp)
+
 # MCP Sound Tool
 
 A Model Context Protocol (MCP) implementation that plays sound effects for Cursor AI and other MCP-compatible environments. This Python implementation provides audio feedback for a more interactive coding experience.
