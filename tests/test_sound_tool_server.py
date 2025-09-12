@@ -25,15 +25,11 @@ class TestSoundToolServer:
         # Create server instance
         server = SoundToolServer()
         
-        # Verify FastMCP was created with proper name and description
+        # Verify FastMCP was created with proper name
         mock_fastmcp.assert_called_once()
         name_arg = mock_fastmcp.call_args[1].get('name')
-        description_arg = mock_fastmcp.call_args[1].get('description')
         
         assert name_arg == "Sound Tool 🔊"
-        assert description_arg is not None
-        assert "audio feedback" in description_arg
-        assert "command outcomes" in description_arg
 
     @patch('os.path.expanduser')
     @patch('src.sound_tool.server.FastMCP')

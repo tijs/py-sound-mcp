@@ -47,21 +47,7 @@ class SoundToolServer:
     def __init__(self):
         """Initialize the MCP server with sound capabilities."""
         # Initialize the MCP server with more detailed name and description
-        self.mcp = FastMCP(
-            name="Sound Tool 🔊", 
-            description="""
-            This MCP server provides audio feedback capabilities for AI interactions.
-            
-            IMPORTANT USAGE GUIDELINES:
-            - AI agents should play sounds to provide audio feedback based on command outcomes
-            - Use 'completion' sounds when successfully completing a task or command
-            - Use 'error' sounds when a command fails or an error occurs
-            - Use 'notification' sounds for important alerts or information
-            
-            These sounds enhance the user experience by providing clear audio cues
-            about the status of operations without requiring the user to read text.
-            """
-        )
+        self.mcp = FastMCP(name="Sound Tool 🔊")
         
         # Try several sound locations in order:
         # 1. User config directory
