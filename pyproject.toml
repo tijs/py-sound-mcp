@@ -43,5 +43,5 @@ addopts = "--verbose"
 [project.optional-dependencies]
 dev = [
     "pytest==8.4.2",
-    "pytest-mock==3.15.0",
+    "pytest-mock==3.15.1",
 ] 
