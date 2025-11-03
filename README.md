@@ -4,6 +4,10 @@
 
 A Model Context Protocol (MCP) implementation that plays sound effects for Cursor AI and other MCP-compatible environments. This Python implementation provides audio feedback for a more interactive coding experience.
 
+<a href="https://glama.ai/mcp/servers/@tijs/py-sound-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@tijs/py-sound-mcp/badge" alt="Sound Tool MCP server" />
+</a>
+
 ## Features
 
 * Plays sound effects for various events (completion, error, notification)
