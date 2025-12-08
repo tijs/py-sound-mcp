@@ -21,7 +21,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "mcp==1.14.0",
+    "mcp==1.23.1",
 ]
 
 [project.urls]
